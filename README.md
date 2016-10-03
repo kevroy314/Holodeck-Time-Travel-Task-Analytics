@@ -18,8 +18,8 @@ pip install colour tzlocal PyOpenGL PyOpenGL_accelerate
 Keyboard Commands
 
 Space - Pause animation
-+ (plus arrow) - Speed up animation
-- (minus arrow) - Slow down animation
+\+ (plus arrow) - Speed up animation
+\- (minus arrow) - Slow down animation
 r - Reset timeline
 e - Go to end of timeline
 Escape - Exit the program
