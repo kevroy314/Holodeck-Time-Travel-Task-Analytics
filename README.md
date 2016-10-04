@@ -1,7 +1,7 @@
 # Holodeck-Time-Travel-Task-Analytics
 This project contains the analytics and visualization code for the Holodeck-Time-Travel-Task project.
 
-It is assumed you know how to get access to data (not included here) in order to run this analysis. In the future, sample data may be provided. For not, e-mail kevin.horecka@gmail.com to get access to sample data.
+It is assumed you know how to get access to data (not included here) in order to run this analysis. In the future, sample data may be provided. For now, e-mail kevin.horecka@gmail.com to get access to sample data.
 
 #Setup/Install
 
