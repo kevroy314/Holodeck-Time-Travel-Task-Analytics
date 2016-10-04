@@ -1,7 +1,6 @@
-import logging
-import struct
-import os
 import datetime
+import struct
+
 import pytz
 from tzlocal import get_localzone
 
@@ -41,11 +40,9 @@ def datetime_from_dot_net_binary(data):
     return datetime.datetime(1, 1, 1, tzinfo=tz) + datetime.timedelta(seconds=seconds)
 
 
-def read_binary_file(directory, filename):
+def read_binary_file(path):
     iterations = []
-    with open(os.path.join(directory, filename), 'rb') as f:
-        logging.info("Parsing file...")
-
+    with open(path, 'rb') as f:
         header_length = decode_7bit_int_length(f)
         header = f.read(header_length)
 

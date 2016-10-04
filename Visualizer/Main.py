@@ -1,4 +1,3 @@
-import datetime
 import logging
 import os
 
@@ -9,7 +8,6 @@ from scipy.misc import imread
 
 from TimeTravelTaskBinaryReader import read_binary_file, get_filename_meta_data
 
-
 local_directory = os.path.dirname(os.path.realpath(__file__))  # The directory of this script
 filename = '001_1_1_1_2016-08-29_10-26-03.dat'  # The relative path to the data file (CHANGE ME)
 meta = get_filename_meta_data(filename)  # The meta filename information for convenience
@@ -17,7 +15,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=loggin
 
 # First we populate a list of each iteration's data
 # This section of code contains some custom binary parser data which won't be explained here
-iterations = read_binary_file(local_directory, filename)
+iterations = read_binary_file(os.path.join(local_directory, filename))
 
 # Determine the background image according to meta phase
 bg_path = 'studyBG.png'
