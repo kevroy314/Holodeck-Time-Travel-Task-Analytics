@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="288ecf73-a8a9-49ee-994e-46d2c03948ee" name="Default" comment="-Began using PyCharm for git management (not required)&#10;-Updated path handling in TimeTravelTaskBinaryReader.py to take full path instead of split path&#10;-Updated README to include argparse install&#10;-PathVisualizerAnimated3D.py will now make file dialog to select file if called without arguments and accepts --log_file &quot;&lt;path&gt;&quot; argument&#10;-Fixed issue with path appearing in first frame&#10;-Fixed study grid to have 1 cell=1second&#10;-Fixed practice scaling to be 1 to 1 with study (so half the size)&#10;-Added practice items and fixed other practice variables&#10;-Added &quot;hide&quot; hotkeys (1, 2, 3, 4, 5)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
+    <list default="true" id="288ecf73-a8a9-49ee-994e-46d2c03948ee" name="Default" comment="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bandana.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basketball.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/boot.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bottle.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clover.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crown.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fireextinguisher.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/guitar.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hammer.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icecubetray.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.py" afterPath="$PROJECT_DIR$/Main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" afterPath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" afterPath="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" />
     </list>
     <ignored path="Visualizer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,23 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PathVisualizerAnimated3D.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PathVisualizerAnimated3D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -54,11 +49,9 @@
       <file leaf-file-name="TimeTravelTaskBinaryReader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="434">
+              <caret line="102" column="53" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,8 +73,8 @@
       <list>
         <option value="$PROJECT_DIR$/DotNetBinaryReader.py" />
         <option value="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" />
-        <option value="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
         <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
       </list>
     </option>
   </component>
@@ -116,7 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,6 +130,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,6 +332,14 @@
       <option name="presentableId" value="Default" />
       <updated>1475085765609</updated>
     </task>
+    <task id="LOCAL-00001" summary="-Began using PyCharm for git management (not required)&#10;-Updated path handling in TimeTravelTaskBinaryReader.py to take full path instead of split path&#10;-Updated README to include argparse install&#10;-PathVisualizerAnimated3D.py will now make file dialog to select file if called without arguments and accepts --log_file &quot;&lt;path&gt;&quot; argument&#10;-Fixed issue with path appearing in first frame&#10;-Fixed study grid to have 1 cell=1second&#10;-Fixed practice scaling to be 1 to 1 with study (so half the size)&#10;-Added practice items and fixed other practice variables&#10;-Added &quot;hide&quot; hotkeys (1, 2, 3, 4, 5)">
+      <created>1475620935186</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1475620935186</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -347,11 +348,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19427083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30866808" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23995772" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30866808" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24312897" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -380,25 +381,56 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="-Began using PyCharm for git management (not required)&#10;-Updated path handling in TimeTravelTaskBinaryReader.py to take full path instead of split path&#10;-Updated README to include argparse install&#10;-PathVisualizerAnimated3D.py will now make file dialog to select file if called without arguments and accepts --log_file &quot;&lt;path&gt;&quot; argument&#10;-Fixed issue with path appearing in first frame&#10;-Fixed study grid to have 1 cell=1second&#10;-Fixed practice scaling to be 1 to 1 with study (so half the size)&#10;-Added practice items and fixed other practice variables&#10;-Added &quot;hide&quot; hotkeys (1, 2, 3, 4, 5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Began using PyCharm for git management (not required)&#10;-Updated path handling in TimeTravelTaskBinaryReader.py to take full path instead of split path&#10;-Updated README to include argparse install&#10;-PathVisualizerAnimated3D.py will now make file dialog to select file if called without arguments and accepts --log_file &quot;&lt;path&gt;&quot; argument&#10;-Fixed issue with path appearing in first frame&#10;-Fixed study grid to have 1 cell=1second&#10;-Fixed practice scaling to be 1 to 1 with study (so half the size)&#10;-Added practice items and fixed other practice variables&#10;-Added &quot;hide&quot; hotkeys (1, 2, 3, 4, 5)" />
+    <MESSAGE value="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PathVisualizerAnimated3D.py</url>
+          <line>357</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="38" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="present_checklist" />
+        <watch expression="descrambler" />
+        <watch expression="descrambler_type" />
+        <watch expression="val" />
+        <watch expression="reconstruction_items" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="103" column="85" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -416,9 +448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -444,9 +473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -464,9 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -484,9 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -504,9 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -514,9 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -524,9 +538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,9 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -553,36 +561,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="1274" column="0" selection-start-line="1274" selection-start-column="0" selection-end-line="1274" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="102" column="53" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda/Lib/site-packages/pyqtgraph/opengl/GLViewWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
