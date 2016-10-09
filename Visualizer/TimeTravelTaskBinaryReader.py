@@ -45,63 +45,148 @@ def read_binary_file(path):
     with open(path, 'rb') as f:
         header_length = decode_7bit_int_length(f)
         header = f.read(header_length)
+        split_header = header.split(',')
+        if split_header[0] != 'version':  # Beta version with new version prefix
+            num_keys = header.count('key')
+            num_buttons = header.count('button')
+            num_items = header.count('itemXYZAC')
 
-        num_keys = header.count('key')
-        num_buttons = header.count('button')
-        num_items = header.count('itemXYZAC')
+            while f.read(1):  # Look ahead for end of file
+                f.seek(-1, 1)  # Go back one to undo the look-ahead
 
-        while f.read(1):  # Look ahead for end of file
-            f.seek(-1, 1)  # Go back one to undo the look-ahead
+                # Extract time information
+                date_time = datetime_from_dot_net_binary(struct.unpack_from('q', f.read(8))[0])
+                time = struct.unpack_from('f', f.read(4))[0]
+                time_scale = struct.unpack_from('f', f.read(4))[0]
 
-            # Extract time information
-            date_time = datetime_from_dot_net_binary(struct.unpack_from('q', f.read(8))[0])
-            time = struct.unpack_from('f', f.read(4))[0]
-            time_scale = struct.unpack_from('f', f.read(4))[0]
+                # Extract position information
+                x = struct.unpack_from('f', f.read(4))[0]
+                y = struct.unpack_from('f', f.read(4))[0]
+                z = struct.unpack_from('f', f.read(4))[0]
 
-            # Extract position information
-            x = struct.unpack_from('f', f.read(4))[0]
-            y = struct.unpack_from('f', f.read(4))[0]
-            z = struct.unpack_from('f', f.read(4))[0]
+                # Extract rotation information
+                rx = struct.unpack_from('f', f.read(4))[0]
+                ry = struct.unpack_from('f', f.read(4))[0]
+                rz = struct.unpack_from('f', f.read(4))[0]
+                rw = struct.unpack_from('f', f.read(4))[0]
 
-            # Extract rotation information
-            rx = struct.unpack_from('f', f.read(4))[0]
-            ry = struct.unpack_from('f', f.read(4))[0]
-            rz = struct.unpack_from('f', f.read(4))[0]
-            rw = struct.unpack_from('f', f.read(4))[0]
+                # Extract key, button, and item information according to expected numbers of each
+                keys = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_keys):
+                    keys.append(struct.unpack_from('?', f.read(1))[0])
+                buttons = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_buttons):
+                    buttons.append(struct.unpack_from('?', f.read(1))[0])
+                ix = []
+                iy = []
+                iz = []
+                i_active = []
+                i_clicked = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_items):
+                    ix.append(struct.unpack_from('f', f.read(4))[0])
+                    iy.append(struct.unpack_from('f', f.read(4))[0])
+                    iz.append(struct.unpack_from('f', f.read(4))[0])
+                    i_active.append(struct.unpack_from('?', f.read(1))[0])
+                    i_clicked.append(struct.unpack_from('?', f.read(1))[0])
 
-            # Extract key, button, and item information according to expected numbers of each
-            keys = []
-            # noinspection PyRedeclaration
-            for i in range(0, num_keys):
-                keys.append(struct.unpack_from('?', f.read(1))[0])
-            buttons = []
-            # noinspection PyRedeclaration
-            for i in range(0, num_buttons):
-                buttons.append(struct.unpack_from('?', f.read(1))[0])
-            ix = []
-            iy = []
-            iz = []
-            i_active = []
-            i_clicked = []
-            # noinspection PyRedeclaration
-            for i in range(0, num_items):
-                ix.append(struct.unpack_from('f', f.read(4))[0])
-                iy.append(struct.unpack_from('f', f.read(4))[0])
-                iz.append(struct.unpack_from('f', f.read(4))[0])
-                i_active.append(struct.unpack_from('?', f.read(1))[0])
-                i_clicked.append(struct.unpack_from('?', f.read(1))[0])
+                # Extract boundary information
+                boundary_state = struct.unpack_from('i', f.read(4))[0]
+                br = struct.unpack_from('f', f.read(4))[0]
+                bg = struct.unpack_from('f', f.read(4))[0]
+                bb = struct.unpack_from('f', f.read(4))[0]
 
-            # Extract boundary information
-            boundary_state = struct.unpack_from('i', f.read(4))[0]
-            br = struct.unpack_from('f', f.read(4))[0]
-            bg = struct.unpack_from('f', f.read(4))[0]
-            bb = struct.unpack_from('f', f.read(4))[0]
+                # Store all information in simple dictionary and add to list of iterations
+                iterations.append({"version": 0,
+                                   "datetime": date_time, "time": time, "timescale": time_scale, "x": x, "y": y, "z": z,
+                                   "rx": rx, "ry": ry, "rz": rz, "rw": rw,
+                                   "keys": keys, "buttons": buttons,
+                                   "itemsx": ix, "itemsy": iy, "itemsz": iz, "itemsactive": i_active,
+                                   "itemsclicked": i_clicked,
+                                   "boundarystate": boundary_state, "br": br, "bg": bg, "bb": bb})
+        elif split_header[1] == '2':  # Version 2
+            num_keys = header.count('key')
+            num_buttons = header.count('button')
+            num_items = header.count('itemXYZActiveClickedEventTime')
+            key_labels = []
+            key_split = header.split('key')
+            for i in range(1, len(key_split)):
+                key_labels.append(key_split[i].split('_')[0])
+            button_labels = []
+            button_split = header.split('button')
+            for i in range(1, len(button_split)):
+                button_labels.append(button_split[i].split('_')[0])
+            while f.read(1):  # Look ahead for end of file
+                f.seek(-1, 1)  # Go back one to undo the look-ahead
 
-            # Store all information in simple dictionary and add to list of iterations
-            iterations.append({"datetime": date_time, "time": time, "timescale": time_scale, "x": x, "y": y, "z": z,
-                               "rx": rx, "ry": ry, "rz": rz, "rw": rw,
-                               "keys": keys, "buttons": buttons,
-                               "itemsx": ix, "itemsy": iy, "itemsz": iz, "itemsactive": i_active,
-                               "itemsclicked": i_clicked,
-                               "boundarystate": boundary_state, "br": br, "bg": bg, "bb": bb})
+                # Extract time information
+                date_time = datetime_from_dot_net_binary(struct.unpack_from('q', f.read(8))[0])
+                time = struct.unpack_from('f', f.read(4))[0]
+                time_scale = struct.unpack_from('f', f.read(4))[0]
+
+                # Extract position information
+                x = struct.unpack_from('f', f.read(4))[0]
+                y = struct.unpack_from('f', f.read(4))[0]
+                z = struct.unpack_from('f', f.read(4))[0]
+
+                # Extract rotation information
+                rx = struct.unpack_from('f', f.read(4))[0]
+                ry = struct.unpack_from('f', f.read(4))[0]
+                rz = struct.unpack_from('f', f.read(4))[0]
+                rw = struct.unpack_from('f', f.read(4))[0]
+
+                # Extract key, button, and item information according to expected numbers of each
+                keys = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_keys):
+                    keys.append(struct.unpack_from('?', f.read(1))[0])
+                buttons = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_buttons):
+                    buttons.append(struct.unpack_from('?', f.read(1))[0])
+                ix = []
+                iy = []
+                iz = []
+                i_active = []
+                i_clicked = []
+                i_event_type = []
+                i_event_time = []
+                # noinspection PyRedeclaration
+                for i in range(0, num_items):
+                    ix.append(struct.unpack_from('f', f.read(4))[0])
+                    iy.append(struct.unpack_from('f', f.read(4))[0])
+                    iz.append(struct.unpack_from('f', f.read(4))[0])
+                    i_active.append(struct.unpack_from('?', f.read(1))[0])
+                    i_clicked.append(struct.unpack_from('?', f.read(1))[0])
+                    i_event_type.append(struct.unpack_from('i', f.read(4))[0])
+                    i_event_time.append(struct.unpack_from('f', f.read(4))[0])
+
+                # Extract boundary information
+                boundary_state = struct.unpack_from('i', f.read(4))[0]
+                br = struct.unpack_from('f', f.read(4))[0]
+                bg = struct.unpack_from('f', f.read(4))[0]
+                bb = struct.unpack_from('f', f.read(4))[0]
+
+                # Extract inventory state
+                inventory_item_numbers = []
+                for i in range(0, num_items):
+                    inventory_item_numbers.append(struct.unpack_from('i', f.read(4))[0])
+                active_inventory_item_number = struct.unpack_from('i', f.read(4))[0]
+                active_inventory_event_index = struct.unpack_from('i', f.read(4))[0]
+
+                # Store all information in simple dictionary and add to list of iterations
+                iterations.append({"version": 2,
+                                   "datetime": date_time, "time": time, "timescale": time_scale, "x": x, "y": y, "z": z,
+                                   "rx": rx, "ry": ry, "rz": rz, "rw": rw,
+                                   "keys": keys, "buttons": buttons,
+                                   'keylabels': key_labels, 'buttonlabels': button_labels,
+                                   "itemsx": ix, "itemsy": iy, "itemsz": iz, "itemsactive": i_active,
+                                   "itemsclicked": i_clicked, 'itemsevent': i_event_type, 'itemstime': i_event_time,
+                                   "boundarystate": boundary_state, "br": br, "bg": bg, "bb": bb,
+                                   'inventoryitemnumbers': inventory_item_numbers,
+                                   'activeinventoryitemnumber': active_inventory_item_number,
+                                   'activeinventoryeventindex': active_inventory_event_index})
+
         return iterations

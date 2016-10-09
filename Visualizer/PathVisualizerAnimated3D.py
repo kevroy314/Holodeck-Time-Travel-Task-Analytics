@@ -92,7 +92,7 @@ def make_grid_item(loc, rot, scale):
     return g
 
 
-if meta['phase'] == '0':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
     w.addItem(make_grid_item((-19, 0, 15), (90, 0, 1, 0), (1.5, 1.9, 1.9)))
     w.addItem(make_grid_item((0, -19, 15), (90, 1, 0, 0), (1.9, 1.5, 1.9)))
 else:
@@ -108,8 +108,12 @@ w.addItem(make_grid_item((0, 0, 0), (0, 0, 0, 0), (1.9, 1.9, 1.9)))
 
 # Determine the background image according to meta phase
 bg_path = 'studyBG.png'
-if meta['phase'] == '0':
+if meta['phase'] == '0' or meta['phase'] == '3':
     bg_path = 'practiceBG.png'
+elif meta['phase'] == '6':
+    bg_path = '2dpracticeBG.png'
+elif meta['phase'] == '7' or meta['phase'] == '8':
+    bg_path = '2dstudyBG.png'
 img = imread(os.path.join(local_directory, bg_path))
 
 image_scale = (19.0 * 2.0) / float(img.shape[0])
@@ -141,7 +145,7 @@ def make_color_bar(rgb, p, r, s):
 
 
 color_bar_length = 15
-if meta['phase'] == '0':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
     times = [0, 7.5, 15, 22.5]
     color_bar_length = 7.5
 else:
@@ -183,7 +187,7 @@ w.addItem(path_line)
 # Generate Item Lines (ground truth)
 ########################################################################################################################
 
-if meta['phase'] == '0':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
     times = [2, 12, 18, 25]
     directions = [2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
     if meta['inverse'] == '1':
@@ -194,6 +198,17 @@ if meta['phase'] == '0':
              {'direction': directions[2], 'pos': (-13, 2, times[2]), 'color': (0, 255, 0)},
              {'direction': directions[3], 'pos': (-12, -17, times[3]), 'color': (0, 0, 255)},
              {'direction': 0, 'pos': (13, 5, 0), 'color': (128, 0, 128)}]
+elif meta['phase'] == '7' or meta['phase'] == '8':
+    times = [2, 8, 17, 23]
+    directions = [2, 1, 1, 2]  # Fall = 2, Fly = 1, Stay = 0
+    if meta['inverse'] == '1':
+        times.reverse()
+        directions.reverse()
+    items = [{'direction': directions[0], 'pos': (16, -14, times[0]), 'color': (255, 255, 0)},
+             {'direction': directions[1], 'pos': (-10, -2, times[1]), 'color': (255, 0, 0)},
+             {'direction': directions[2], 'pos': (15, -8, times[2]), 'color': (0, 255, 0)},
+             {'direction': directions[3], 'pos': (-15, -15, times[3]), 'color': (0, 0, 255)},
+             {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
 else:
     times = [4, 10, 16, 25, 34, 40, 46, 51]
     directions = [2, 1, 1, 2, 2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
@@ -216,7 +231,7 @@ pos = np.empty((len(items), 3))
 size = np.empty((len(items)))
 color = np.empty((len(items), 4))
 end_time = 60
-if meta['phase'] == '0':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
     end_time = 30
 for idx, i in enumerate(items):
     pos[idx] = i['pos']
@@ -249,6 +264,7 @@ item_number_label = ['bottle', 'icecubetray', 'clover', 'basketball', 'boot', 'c
 item_label_filename = ['bottle.jpg', 'icecubetray.jpg', 'clover.jpg', 'basketball.jpg',
                        'boot.jpg', 'crown.jpg', 'bandana.jpg', 'hammer.jpg',
                        'fireextinguisher.jpg', 'guitar.jpg']
+
 descrambler = [1, 2, 4, 7, 0, 3, 5, 6, 8, 9]
 descrambler_type = [2, 2, 2, 2, 1, 1, 1, 1, 0, 0]
 
@@ -267,122 +283,163 @@ cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
         (pastel_factor, pastel_factor, 255),
         (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
 
+if meta['phase'] == '7' or meta['phase'] == '8':
+    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
+    item_label_filename = ['bottle.jpg', 'clover.jpg', 'boot.jpg', 'bandana.jpg', 'guitar.jpg']
+    cols = [(255, 255, pastel_factor), (255, pastel_factor, pastel_factor), (pastel_factor, 255, pastel_factor),
+            (pastel_factor, pastel_factor, 255), (128, pastel_factor / 2, 128)]
 reconstruction_item_scatter_plot = None
 reconstruction_item_lines = []
 reconstruction_items = [None] * len(item_number_label)
 billboard_item_labels = []
+drop_stack = []
+if meta['phase'] == '2' or meta['phase'] == '5' or meta['phase'] == '8':
+    if iterations[0]['version'] == 0:
+        pos = np.empty((len(items), 3))
+        size = np.empty((len(items)))
+        color = np.empty((len(items), 4))
+        end_time = 60  # End time for convenience
 
-if meta['phase'] == '2':
-    pos = np.empty((len(items), 3))
-    size = np.empty((len(items)))
-    color = np.empty((len(items), 4))
-    end_time = 60  # End time for convenience
+        ################################################################################################################
+        # BEGIN DESCRAMBLER
+        ################################################################################################################
 
-    ####################################################################################################################
-    # BEGIN DESCRAMBLER
-    ####################################################################################################################
+        start_state = iterations[0]  # Store first iteration
+        end_state = iterations[len(iterations) - 1]  # Store last iteration
+        prev_active = start_state['itemsactive']  # Create activity array
 
-    start_state = iterations[0]  # Store first iteration
-    end_state = iterations[len(iterations) - 1]  # Store last iteration
-    prev_active = start_state['itemsactive']  # Create activity array
+        # Event state tracker variables (this works great)
+        event_state = 0
+        prev_event_btn_state = False
+        prev_drop_button_state = False
+        for iterations_idx, i in enumerate(iterations):
+            if iterations_idx == len(iterations) - 1:
+                break
+            # Get the event state button (keys, 4, buttons, 4)
+            event_button_state = i['buttons'][4]
+            if event_button_state and not prev_event_btn_state:  # On rising edge
+                event_state = (event_state + 1) % 3  # Set the event state appropriately
+            prev_event_btn_state = event_button_state  # Update prev state for edge detection
+            # Get the item drop button state (keys 1, buttons 1)
+            drop_button_state = i['buttons'][1]
+            # Find the value of the index of this item in the descrambler, this is the correct item value (I think)
+            # Coordinate comparison
+            current_item_coords = []
+            for xx, zz in zip(i['itemsx'], i['itemsz']):
+                current_item_coords.append((xx, zz))
+            next_iteration = iterations[iterations_idx + 1]
+            next_item_coords = []
+            for xx, zz in zip(next_iteration['itemsx'], next_iteration['itemsz']):
+                next_item_coords.append((xx, zz))
+            # Check for changed state (at this point, active and button press simultaneously)
+            if (current_item_coords != next_item_coords) and (not iterations_idx == 0):
+                logging.debug(','.join(map(str, current_item_coords)))
+                logging.debug(','.join(map(str, next_item_coords)))
+                present_checklist = [False] * len(current_item_coords)
+                missing_item_index = -1
+                for idxx, (first, second) in enumerate(zip(current_item_coords, next_item_coords)):
+                    if first in next_item_coords:
+                        present_checklist[idxx] = True
+                    if next_item_coords.count(first) > 1 or current_item_coords.count(second) > 1:
+                        logging.warning('Items were found to be placed on top of each other. ' +
+                                        'This will likely make the item identities during reconstruction inaccurate.')
+                        logging.debug('CASE: Multiple items in same location, ' +
+                                      'consulting Active list for differentiation.')
+                        active_list = i['itemsactive']
+                        next_active_list = iterations[iterations_idx + 1]['itemsactive']
+                        logging.debug(','.join(map(str, active_list)))
+                        logging.debug(','.join(map(str, next_active_list)))
+                        logging.debug(event_state)
+                        logging.debug(','.join(map(str, descrambler_type)))
+                        for idxxx, (a, b) in enumerate(zip(current_item_coords, next_item_coords)):
+                            if not a == b:
+                                present_checklist[idxxx] = False
+                                logging.debug('{0} found as move index'.format(idxxx))
+                                break
+                for idxx, check in enumerate(present_checklist):
+                    if not check:
+                        missing_item_index = idxx
+                logging.debug('{0} is missing item index'.format(missing_item_index))
+                # Now we know which item (according to the previous descrambler state) had its location change
+                # and which index it WAS in. We also know the event type it was placed as so we can compute its NEW
+                # position in the list.
+                # missing_item_index is the index of the placed item (according to current descrambler)
+                # event_state is the type of event which was placed
+                # Edge cases include if an item is placed precisely back where it was and if multiple items are
+                # placed in the same place... unfortunately this happens in 44.6% of test files...
+                # MORE NOTES:
+                # I think it is possible to completely descramble because if an item is inserted into a
+                # list of consecutive
+                # identical coordinates, the items form a stack (where the latest placed item is picked up first)...
+                # when picked up, we now know it's relative index in the inventory (and we can be relatively sure it's
+                # picked up because it should become inactive). Since it must be picked up to be placed correctly,
+                # if we track its position in the inventory until it is again placed, we can disentangle it from its
+                # identical partners. To track it in inventory, it is necessary to track inventory clicks as well as
+                # the number of items in the inventory so a proper modulus can be established.
+                # Ugh.
+                # DESCRAMBLER LOGIC
+                # If the current event state is 0 (stationary), move the current item to the end of the list
+                insertion_index = -1
+                val = descrambler[missing_item_index]
+                del descrambler[missing_item_index]
+                del descrambler_type[missing_item_index]
+                if event_state == 0:
+                    descrambler.append(val)
+                    descrambler_type.append(event_state)
+                    insertion_index = len(descrambler) - 1
+                # If the current event state is 1 (up/fly), move the current item to the last fly position
+                elif event_state == 1 or event_state == 2:
+                    last = find_last(descrambler_type, event_state)
+                    if last is None and event_state == 1:
+                        last = find_last(descrambler_type, 2)
+                    elif last is None and event_state == 2:
+                        last = 0
+                    logging.debug('inserting into {0}'.format((last+1)))
+                    descrambler.insert(last + 1, val)
+                    descrambler_type.insert(last + 1, event_state)
+                    insertion_index = last + 1
 
-    # Event state tracker variables (this works great)
-    event_state = 0
-    prev_event_btn_state = False
-    prev_drop_button_state = False
-    for iterations_idx, i in enumerate(iterations):
-        if iterations_idx == len(iterations) - 1:
-            break
-        # Get the event state button (keys, 4, buttons, 4)
-        event_button_state = i['buttons'][4]
-        if event_button_state and not prev_event_btn_state:  # On rising edge
-            event_state = (event_state + 1) % 3  # Set the event state appropriately
-        prev_event_btn_state = event_button_state  # Update prev state for edge detection
-        # Get the item drop button state (keys 1, buttons 1)
-        drop_button_state = i['buttons'][1]
-        if drop_button_state and not prev_drop_button_state:  # On rising edge, notify user of drop
-            logging.debug(
-                'drop item as ' + event_state_labels[event_state] + str(i['time']) + ','.join(map(str, i['keys'])))
+                # Generate projected values (time is the important one, the space ones are replaced at the end
+                # according to the descrambler order)
+                placed_x = next_item_coords[insertion_index][0]
+                placed_z = next_item_coords[insertion_index][1]
+                placed_t = i['time']
+                # If the event is stationary, the time of placement doesn't matter, ignore it and set to 0
+                if event_state == 0:
+                    placed_t = 0
+                # Add the item to the list using the correct IDX to look up the color
+                reconstruction_items[val] = {'direction': event_state,
+                                             'pos': (placed_x, placed_z, placed_t),
+                                             'color': cols[val]}
+                # Log debug information
+                logging.debug(','.join(map(str, descrambler)))
+                logging.debug("{0}, {1}, ({2}, {3}, {4})".format(
+                    item_number_label[val].ljust(11, ' '),
+                    event_state_labels[event_state], placed_x, placed_z, placed_t))
+            prev_drop_button_state = drop_button_state
 
-        # Find the value of the index of this item in the descrambler, this is the correct item value (I think)
-        # Coordinate comparison
-        current_item_coords = []
-        for xx, zz in zip(i['itemsx'], i['itemsz']):
-            current_item_coords.append((xx, zz))
-        next_iteration = iterations[iterations_idx + 1]
-        next_item_coords = []
-        for xx, zz in zip(next_iteration['itemsx'], next_iteration['itemsz']):
-            next_item_coords.append((xx, zz))
-        # Check for changed state (at this point, active and button press simultaneously)
-        if (current_item_coords != next_item_coords) and (not iterations_idx == 0):
-            logging.debug(','.join(map(str, current_item_coords)))
-            logging.debug(','.join(map(str, next_item_coords)))
-            present_checklist = [False] * len(current_item_coords)
-            ir_index = -1
-            missing_item_index = -1
-            for idxx, (first, second) in enumerate(zip(current_item_coords, next_item_coords)):
-                if first in next_item_coords:
-                    present_checklist[idxx] = True
-                if not first == second and (not ir_index == -1):
-                    ir_index = idxx
-            for idxx, check in enumerate(present_checklist):
-                if not check:
-                    missing_item_index = idxx
-            # Now we know which item (according to the previous descrambler state) had its location change
-            # and which index it WAS in. We also know the event type it was placed as so we can compute its NEW
-            # position in the list.
-            # missing_item_index is the index of the placed item (according to current descrambler)
-            # event_state is the type of event which was placed
-            # Edge cases include if an item is placed precisely back where it was and if multiple items are
-            # placed in the same place
+        # Replace all of the position values with the descrambled position values at the final time point.
+        # Keep the time point the same as it should've been corrected earlier
+        # for idx in range(0, len(reconstruction_items)):
+        #    reconstruction_items[idx]['pos'] = (end_state['itemsx'][descrambler[idx]],
+        #                                        end_state['itemsz'][descrambler[idx]],
+        #                                        reconstruction_items[idx]['pos'][2])
+        #    reconstruction_items[idx]['color'] = cols[idx]
 
-            # DESCRAMBLER LOGIC
-            # If the current event state is 0 (stationary), move the current item to the end of the list
-            insertion_index = -1
-            val = descrambler[missing_item_index]
-            del descrambler[missing_item_index]
-            del descrambler_type[missing_item_index]
-            if event_state == 0:
-                descrambler.append(val)
-                descrambler_type.append(event_state)
-                insertion_index = len(descrambler) - 1
-            # If the current event state is 1 (up/fly), move the current item to the last fly position
-            elif event_state == 1 or event_state == 2:
-                last = find_last(descrambler_type, event_state)
-                descrambler.insert(last + 1, val)
-                descrambler_type.insert(last + 1, event_state)
-                insertion_index = last + 1
+        ################################################################################################################
+        # END DESCRAMBLER
+        ################################################################################################################
 
-            # Generate projected values (time is the important one, the space ones are replaced at the end
-            # according to the descrambler order)
-            placed_x = next_item_coords[insertion_index][0]
-            placed_z = next_item_coords[insertion_index][1]
-            placed_t = i['time']
-            # If the event is stationary, the time of placement doesn't matter, ignore it and set to 0
-            if event_state == 0:
-                placed_t = 0
-            # Add the item to the list using the correct IDX to look up the color
-            reconstruction_items[val] = {'direction': event_state,
-                                         'pos': (placed_x, placed_z, placed_t),
-                                         'color': cols[val]}
-            # Log debug information
-            logging.debug(','.join(map(str, descrambler)))
-            logging.debug("{0}, {1}, ({2}, {3}, {4})".format(
-                item_number_label[val].ljust(11, ' '), event_state_labels[event_state], placed_x, placed_z, placed_t))
-        prev_drop_button_state = drop_button_state
+    if iterations[0]['version'] == 2:
+        end_state = iterations[len(iterations)-1]
+        for idx, (x, y, z, active, clicked, event, time) in \
+                enumerate(zip(end_state['itemsx'], end_state['itemsy'], end_state['itemsz'], end_state['itemsactive'],
+                              end_state['itemsclicked'], end_state['itemsevent'], end_state['itemstime'])):
+            reconstruction_items[idx] = {'direction': event, 'pos': (x, z, time), 'color': cols[idx]}
 
-    # Replace all of the position values with the descrambled position values at the final time point.
-    # Keep the time point the same as it should've been corrected earlier
-    # for idx in range(0, len(reconstruction_items)):
-    #    reconstruction_items[idx]['pos'] = (end_state['itemsx'][descrambler[idx]],
-    #                                        end_state['itemsz'][descrambler[idx]],
-    #                                        reconstruction_items[idx]['pos'][2])
-    #    reconstruction_items[idx]['color'] = cols[idx]
-
-    ####################################################################################################################
-    # END DESCRAMBLER
-    ####################################################################################################################
-
+    pos = np.empty((len(reconstruction_items), 3))
+    size = np.empty((len(reconstruction_items)))
+    color = np.empty((len(reconstruction_items), 4))
     # Iterate through the reconstruction items and visualize them
     for idx, i in enumerate(reconstruction_items):
         pos[idx] = i['pos']
@@ -523,12 +580,12 @@ def toggle_base_visible():
 def toggle_color_bars_visible():
     global color_bars_visible
     if color_bars_visible:
-        for b in color_bars:
-            b.hide()
+        for bar in color_bars:
+            bar.hide()
         color_bars_visible = False
     else:
-        for b in color_bars:
-            b.show()
+        for bar in color_bars:
+            bar.show()
         color_bars_visible = True
 
 

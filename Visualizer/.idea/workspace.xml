@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="288ecf73-a8a9-49ee-994e-46d2c03948ee" name="Default" comment="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bandana.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basketball.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/boot.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bottle.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clover.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crown.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fireextinguisher.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/guitar.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hammer.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icecubetray.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" afterPath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" afterPath="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" />
     </list>
     <ignored path="Visualizer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +27,8 @@
       <file leaf-file-name="PathVisualizerAnimated3D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+            <state relative-caret-position="239">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -49,8 +39,8 @@
       <file leaf-file-name="TimeTravelTaskBinaryReader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="102" column="53" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="53" />
+            <state relative-caret-position="341">
+              <caret line="185" column="100" selection-start-line="185" selection-start-column="91" selection-end-line="185" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -72,17 +62,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/DotNetBinaryReader.py" />
-        <option value="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" />
         <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/TimeTravelTaskBinaryReader.py" />
         <option value="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1296" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -129,8 +119,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,25 +329,32 @@
       <option name="project" value="LOCAL" />
       <updated>1475620935186</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is.">
+      <created>1475874104635</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1475874104635</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1296" height="1040" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19427083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30866808" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23995772" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24312897" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3688172" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39852008" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39462367" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -392,11 +389,11 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/PathVisualizerAnimated3D.py</url>
-          <line>357</line>
-          <option name="timeStamp" value="37" />
+          <line>443</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="38" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -405,10 +402,21 @@
         <watch expression="descrambler_type" />
         <watch expression="val" />
         <watch expression="reconstruction_items" />
+        <watch expression="reconstruction_items" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -571,26 +579,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="102" column="53" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Anaconda/Lib/site-packages/pyqtgraph/opengl/GLViewWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="185" column="100" selection-start-line="185" selection-start-column="91" selection-end-line="185" selection-end-column="100" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+        <state relative-caret-position="239">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
