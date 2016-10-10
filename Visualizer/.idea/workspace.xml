@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="288ecf73-a8a9-49ee-994e-46d2c03948ee" name="Default" comment="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" afterPath="$PROJECT_DIR$/PathVisualizerAnimated3D.py" />
-    </list>
+    <list default="true" id="288ecf73-a8a9-49ee-994e-46d2c03948ee" name="Default" comment="-Added item images for use in visualization (grayscale)&#10;-Massive update to PathVisualizerAnimated3D (changes below)&#10;&#10;-Showstopper bug was found in reconstruction logger requiring an extremely complex descrambler to determine item placement. This has been tested for reconstruction sequences in which no items were picked back up and no items were placed on top of each other (usually the latter is a subset of the former).&#10;-Added descrambler&#10;-Added visualization of reconstruction lines if meta phase is 2 (Test)&#10;-Added item label visualizations for reconstructed items&#10;-Importantly, these reconstructed items are descrambled by 1. using the event button presses to determine a time-event relationship. 2. using changes in location across iterations to determine a location-item relationship. 3. using an algorithmic deshuffling based on the bug in question to determine an item-time association. With these pieces of information, it is possible in most cases to know which items are which, which time-space combos go together, and what the correct event type is." />
     <ignored path="Visualizer.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="PathVisualizerAnimated3D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="730" column="0" selection-start-line="730" selection-start-column="0" selection-end-line="730" selection-end-column="0" />
+            <state relative-caret-position="54">
+              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -37,9 +35,12 @@
       <file leaf-file-name="TimeTravelTaskBinaryReader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="184" column="35" selection-start-line="184" selection-start-column="35" selection-end-line="185" selection-end-column="116" />
-              <folding />
+            <state relative-caret-position="1785">
+              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+              <folding>
+                <marker date="1476067133186" expanded="false" signature="0:7" ph="import ..." />
+                <marker date="1476067133186" expanded="true" signature="9465:9491" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,6 +117,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -136,8 +139,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,13 +404,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PathVisualizerAnimated3D.py</url>
-          <line>270</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -446,6 +440,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding>
+            <marker date="1476067133186" expanded="false" signature="0:7" ph="import ..." />
+            <marker date="1476067133186" expanded="true" signature="9465:9491" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -460,7 +475,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="103" column="85" selection-start-line="103" selection-start-column="74" selection-end-line="103" selection-end-column="85" />
-          <folding />
+          <folding>
+            <marker date="1476067133186" expanded="false" signature="0:7" ph="import ..." />
+            <marker date="1476067133186" expanded="true" signature="9465:9491" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -492,7 +510,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
           <caret line="103" column="91" selection-start-line="103" selection-start-column="81" selection-end-line="103" selection-end-column="91" />
-          <folding />
+          <folding>
+            <marker date="1476067133186" expanded="false" signature="0:7" ph="import ..." />
+            <marker date="1476067133186" expanded="true" signature="9465:9491" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -610,9 +631,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TimeTravelTaskBinaryReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="184" column="35" selection-start-line="184" selection-start-column="35" selection-end-line="185" selection-end-column="116" />
-          <folding />
+        <state relative-caret-position="1785">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding>
+            <marker date="1476067133186" expanded="false" signature="0:7" ph="import ..." />
+            <marker date="1476067133186" expanded="true" signature="9465:9491" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -620,14 +644,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="294" column="8" selection-start-line="294" selection-start-column="8" selection-end-line="294" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="730" column="0" selection-start-line="730" selection-start-column="0" selection-end-line="730" selection-end-column="0" />
+        <state relative-caret-position="54">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

@@ -6,7 +6,10 @@ import tkFileDialog
 import numpy as np
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
-import tkinter
+try:
+    import tkinter as tk
+except ImportError:
+    import Tkinter as tk
 from pyqtgraph.Qt import QtCore, QtGui
 from scipy.misc import imread
 
@@ -37,7 +40,7 @@ local_directory = os.path.dirname(os.path.realpath(__file__))  # The directory o
 # filename = '001_1_1_1_2016-08-29_10-26-03.dat'  # The relative path to the data file (CHANGE ME)
 # path = os.path.join(local_directory, filename)
 if args.log_file is None:
-    root = tkinter.Tk()
+    root = tk.Tk()
     root.withdraw()
     path = tkFileDialog.askopenfilename()
 else:
