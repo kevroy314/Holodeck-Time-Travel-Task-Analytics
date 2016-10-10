@@ -256,6 +256,30 @@ item_scatter_plot = gl.GLScatterPlotItem(pos=pos, size=size, color=color, pxMode
 w.addItem(item_scatter_plot)
 
 ########################################################################################################################
+# If Study/Practice, label click events
+########################################################################################################################
+
+click_pos = np.empty((len(items), 3))
+click_size = np.zeros((len(iterations), len(items)))
+click_color = np.empty((len(items), 4))
+if meta['phase'] == '0' or meta['phase'] == '1' or meta['phase'] == '3' or meta['phase'] == '4' \
+        or meta['phase'] == '6' or meta['phase'] == '7':
+    for idx, i in enumerate(iterations):
+        if idx + 1 < len(iterations):
+            for idxx, (i1, i2) in enumerate(zip(i['itemsclicked'], iterations[idx + 1]['itemsclicked'])):
+                if i['itemsclicked'][idxx]:
+                    click_size[idx][idxx] = 0.5
+                if not i1 == i2:
+                    click_pos[idxx] = (i['x'], i['z'], i['time'])
+                    click_color[idxx] = (128, 128, 128, 255)
+        else:
+            for idxx, i1 in enumerate(i['itemsclicked']):
+                if i['itemsclicked'][idxx]:
+                    click_size[idx][idxx] = 0.5
+click_scatter = gl.GLScatterPlotItem(pos=click_pos, size=click_size[0], color=click_color, pxMode=False)
+w.addItem(click_scatter)
+
+########################################################################################################################
 # If Test, Generate Reconstruction Items
 ########################################################################################################################
 event_state_labels = ['stationary', 'up', 'down']
@@ -607,9 +631,11 @@ def toggle_path_line_visible():
     global path_line_visible
     if path_line_visible:
         path_line.hide()
+        click_scatter.hide()
         path_line_visible = False
     else:
         path_line.show()
+        click_scatter.show()
         path_line_visible = True
 
 
@@ -674,7 +700,7 @@ sh.setContext(QtCore.Qt.ApplicationShortcut)
 
 
 def update():
-    global path_line, idx, timer
+    global path_line, idx, timer, iterations, click_scatter, click_pos, click_color, click_size
     for _ in range(0, abs(num_points_to_update)):
         if num_points_to_update > 0:
             line_color_state[idx] = line_color[idx]
@@ -688,6 +714,20 @@ def update():
             idx = len(line_color) - 1
             break
     path_line.setData(color=line_color_state)
+    if meta['phase'] == '2' or meta['phase'] == '5' or meta['phase'] == '8':
+        position = np.array([(xpos, zpos, tpos) for (xpos, zpos, tpos) in zip(iterations[idx]['itemsx'],
+                                                                              iterations[idx]['itemsz'],
+                                                                              iterations[idx]['itemstime'])])
+        active_colors = []
+        for active_item in iterations[idx]['itemsactive']:
+            if active_item:
+                active_colors.append((255, 255, 255, 255))
+            else:
+                active_colors.append((0, 0, 0, 0))
+        active_sizes = np.array([0.5]*len(position))
+        click_scatter.setData(pos=position, size=active_sizes, color=np.array(active_colors))
+    else:
+        click_scatter.setData(pos=click_pos, size=click_size[idx], color=click_color, pxMode=False)
 
 
 timer = QtCore.QTimer()
