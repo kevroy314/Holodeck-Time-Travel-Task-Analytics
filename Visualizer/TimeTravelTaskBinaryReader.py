@@ -12,6 +12,16 @@ def get_filename_meta_data(fn):
     return {"subID": parts[0], "trial": parts[1], "phase": parts[2], "inverse": parts[3], "datetime": dt}
 
 
+# Lookup phase name from number
+def phase_num_to_str(phase):
+    names = ['VR Practice', 'VR Study', 'VR Test', 'VE Practice', 'VE Study', 'VE Test',
+             '2D Practice', '2D Study', '2D Test']
+    lookup = phase
+    if isinstance(lookup, basestring):
+        lookup = int(lookup)
+    return names[lookup]
+
+
 # From http://stackoverflow.com/questions/1550560/encoding-an-integer-in-7-bit-format-of-c-sharp-binaryreader-readstring
 # This function is used in reading the binary files to read the length of the header from the beginning of the file
 def decode_7bit_int_length(fp):

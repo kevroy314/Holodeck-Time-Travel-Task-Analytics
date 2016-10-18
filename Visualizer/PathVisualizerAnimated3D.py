@@ -6,6 +6,7 @@ import tkFileDialog
 import numpy as np
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
+
 try:
     import tkinter as tk
 except ImportError:
@@ -13,7 +14,7 @@ except ImportError:
 from pyqtgraph.Qt import QtCore, QtGui
 from scipy.misc import imread
 
-from TimeTravelTaskBinaryReader import read_binary_file, get_filename_meta_data
+from TimeTravelTaskBinaryReader import read_binary_file, get_filename_meta_data, phase_num_to_str
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=logging.INFO)
 
@@ -75,7 +76,9 @@ app = QtGui.QApplication([])
 w = gl.GLViewWidget()
 w.opts['center'] = pg.Qt.QtGui.QVector3D(0, 0, 30)
 w.opts['distance'] = 200
-w.setWindowTitle('Timeline Visualizer')
+w.setWindowTitle('Timeline Visualizer' + ' - Subject {0}, Trial {1}, Phase {2}'.format(meta['subID'],
+                                                                                       meta['trial'],
+                                                                                       phase_num_to_str(meta['phase'])))
 
 ########################################################################################################################
 # Make Grid
