@@ -140,9 +140,7 @@ color_bars = []
 
 def make_color_bar(rgb, p, r, s):
     global color_bars
-    col = np.array([[rgb]])
-    tmp_texture = pg.makeRGBA(col)[0]
-    v = gl.GLImageItem(tmp_texture)
+    v = gl.GLImageItem(np.array([[rgb+(255,)]]))
     v.translate(p[0], p[1], p[2])
     v.scale(s[0], s[1], s[2])
     v.rotate(r[0], r[1], r[2], r[3])
