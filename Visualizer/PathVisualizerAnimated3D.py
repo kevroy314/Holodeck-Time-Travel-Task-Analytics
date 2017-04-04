@@ -98,7 +98,7 @@ def make_grid_item(loc, rot, scale):
     return g
 
 
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':  # or meta['phase'] == '7' or meta['phase'] == '8':
     w.addItem(make_grid_item((-19, 0, 15), (90, 0, 1, 0), (1.5, 1.9, 1.9)))
     w.addItem(make_grid_item((0, -19, 15), (90, 1, 0, 0), (1.9, 1.5, 1.9)))
 else:
@@ -149,7 +149,7 @@ def make_color_bar(rgb, p, r, s):
 
 
 color_bar_length = 15
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':# or meta['phase'] == '7' or meta['phase'] == '8':
     times = [0, 7.5, 15, 22.5]
     color_bar_length = 7.5
 else:
@@ -202,17 +202,17 @@ if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
              {'direction': directions[2], 'pos': (-13, 2, times[2]), 'color': (0, 255, 0)},
              {'direction': directions[3], 'pos': (-12, -17, times[3]), 'color': (0, 0, 255)},
              {'direction': 0, 'pos': (13, 5, 0), 'color': (128, 0, 128)}]
-elif meta['phase'] == '7' or meta['phase'] == '8':
-    times = [2, 8, 17, 23]
-    directions = [2, 1, 1, 2]  # Fall = 2, Fly = 1, Stay = 0
-    if meta['inverse'] == '1':
-        times.reverse()
-        directions.reverse()
-    items = [{'direction': directions[0], 'pos': (16, -14, times[0]), 'color': (255, 255, 0)},
-             {'direction': directions[1], 'pos': (-10, -2, times[1]), 'color': (255, 0, 0)},
-             {'direction': directions[2], 'pos': (15, -8, times[2]), 'color': (0, 255, 0)},
-             {'direction': directions[3], 'pos': (-15, -15, times[3]), 'color': (0, 0, 255)},
-             {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
+#elif meta['phase'] == '7' or meta['phase'] == '8':
+#    times = [2, 8, 17, 23]
+#    directions = [2, 1, 1, 2]  # Fall = 2, Fly = 1, Stay = 0
+#    if meta['inverse'] == '1':
+#        times.reverse()
+#        directions.reverse()
+#    items = [{'direction': directions[0], 'pos': (16, -14, times[0]), 'color': (255, 255, 0)},
+#             {'direction': directions[1], 'pos': (-10, -2, times[1]), 'color': (255, 0, 0)},
+#             {'direction': directions[2], 'pos': (15, -8, times[2]), 'color': (0, 255, 0)},
+#             {'direction': directions[3], 'pos': (-15, -15, times[3]), 'color': (0, 0, 255)},
+#             {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
 else:
     times = [4, 10, 16, 25, 34, 40, 46, 51]
     directions = [2, 1, 1, 2, 2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
@@ -235,7 +235,7 @@ pos = np.empty((len(items), 3))
 size = np.empty((len(items)))
 color = np.empty((len(items), 4))
 end_time = 60
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6' or meta['phase'] == '7' or meta['phase'] == '8':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':  # or meta['phase'] == '7' or meta['phase'] == '8':
     end_time = 30
 for idx, i in enumerate(items):
     pos[idx] = i['pos']
@@ -311,11 +311,11 @@ cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
         (pastel_factor, pastel_factor, 255),
         (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
 
-if meta['phase'] == '7' or meta['phase'] == '8':
-    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
-    item_label_filename = ['bottle.jpg', 'clover.jpg', 'boot.jpg', 'bandana.jpg', 'guitar.jpg']
-    cols = [(255, 255, pastel_factor), (255, pastel_factor, pastel_factor), (pastel_factor, 255, pastel_factor),
-            (pastel_factor, pastel_factor, 255), (128, pastel_factor / 2, 128)]
+#if meta['phase'] == '7' or meta['phase'] == '8':
+#    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
+#    item_label_filename = ['bottle.jpg', 'clover.jpg', 'boot.jpg', 'bandana.jpg', 'guitar.jpg']
+#    cols = [(255, 255, pastel_factor), (255, pastel_factor, pastel_factor), (pastel_factor, 255, pastel_factor),
+#            (pastel_factor, pastel_factor, 255), (128, pastel_factor / 2, 128)]
 reconstruction_item_scatter_plot = None
 reconstruction_item_lines = []
 reconstruction_items = [None] * len(item_number_label)
