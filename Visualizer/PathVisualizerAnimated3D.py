@@ -142,7 +142,11 @@ def make_color_bar(rgb, p, r, s):
 
 
 color_bar_length = 15
+<<<<<<< HEAD
 if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6': # or meta['phase'] == '7' or meta['phase'] == '8':
+=======
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':# or meta['phase'] == '7' or meta['phase'] == '8':
+>>>>>>> origin/master
     times = [0, 7.5, 15, 22.5]
     color_bar_length = 7.5
 else:
@@ -180,7 +184,48 @@ w.addItem(path_line)
 
 # Generate Item Lines (ground truth)
 
+<<<<<<< HEAD
 items, times, directions = get_items_solutions(meta)
+=======
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
+    times = [2, 12, 18, 25]
+    directions = [2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
+    if meta['inverse'] == '1':
+        times.reverse()
+        directions.reverse()
+    items = [{'direction': directions[0], 'pos': (2, -12, times[0]), 'color': (255, 255, 0)},
+             {'direction': directions[1], 'pos': (2, 13, times[1]), 'color': (255, 0, 0)},
+             {'direction': directions[2], 'pos': (-13, 2, times[2]), 'color': (0, 255, 0)},
+             {'direction': directions[3], 'pos': (-12, -17, times[3]), 'color': (0, 0, 255)},
+             {'direction': 0, 'pos': (13, 5, 0), 'color': (128, 0, 128)}]
+#elif meta['phase'] == '7' or meta['phase'] == '8':
+#    times = [2, 8, 17, 23]
+#    directions = [2, 1, 1, 2]  # Fall = 2, Fly = 1, Stay = 0
+#    if meta['inverse'] == '1':
+#        times.reverse()
+#        directions.reverse()
+#    items = [{'direction': directions[0], 'pos': (16, -14, times[0]), 'color': (255, 255, 0)},
+#             {'direction': directions[1], 'pos': (-10, -2, times[1]), 'color': (255, 0, 0)},
+#             {'direction': directions[2], 'pos': (15, -8, times[2]), 'color': (0, 255, 0)},
+#             {'direction': directions[3], 'pos': (-15, -15, times[3]), 'color': (0, 0, 255)},
+#             {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
+else:
+    times = [4, 10, 16, 25, 34, 40, 46, 51]
+    directions = [2, 1, 1, 2, 2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
+    if meta['inverse'] == '1':
+        times.reverse()
+        directions.reverse()
+    items = [{'direction': directions[0], 'pos': (18, -13, times[0]), 'color': (255, 255, 0)},
+             {'direction': directions[1], 'pos': (-13, 9, times[1]), 'color': (255, 255, 0)},
+             {'direction': directions[2], 'pos': (-10, -2, times[2]), 'color': (255, 0, 0)},
+             {'direction': directions[3], 'pos': (6, -2, times[3]), 'color': (255, 0, 0)},
+             {'direction': directions[4], 'pos': (17, -8, times[4]), 'color': (0, 255, 0)},
+             {'direction': directions[5], 'pos': (-2, -7, times[5]), 'color': (0, 255, 0)},
+             {'direction': directions[6], 'pos': (-15, -15, times[6]), 'color': (0, 0, 255)},
+             {'direction': directions[7], 'pos': (6, 18, times[7]), 'color': (0, 0, 255)},
+             {'direction': 0, 'pos': (14, 6, 0), 'color': (128, 0, 128)},
+             {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
+>>>>>>> origin/master
 
 item_lines = []
 pos = np.empty((len(items), 3))
@@ -255,7 +300,11 @@ cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
         (pastel_factor, pastel_factor, 255),
         (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
 
+<<<<<<< HEAD
 # if meta['phase'] == '7' or meta['phase'] == '8':
+=======
+#if meta['phase'] == '7' or meta['phase'] == '8':
+>>>>>>> origin/master
 #    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
 #    item_label_filename = ['bottle.jpg', 'clover.jpg', 'boot.jpg', 'bandana.jpg', 'guitar.jpg']
 #    cols = [(255, 255, pastel_factor), (255, pastel_factor, pastel_factor), (pastel_factor, 255, pastel_factor),
