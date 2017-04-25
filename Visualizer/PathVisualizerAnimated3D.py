@@ -96,7 +96,7 @@ def make_grid_item(loc, rot, scale):
     return g
 
 
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':  # or meta['phase'] == '7' or meta['phase'] == '8':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
     w.addItem(make_grid_item((-19, 0, 15), (90, 0, 1, 0), (1.5, 1.9, 1.9)))
     w.addItem(make_grid_item((0, -19, 15), (90, 1, 0, 0), (1.9, 1.5, 1.9)))
 else:
@@ -142,11 +142,8 @@ def make_color_bar(rgb, p, r, s):
 
 
 color_bar_length = 15
-<<<<<<< HEAD
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6': # or meta['phase'] == '7' or meta['phase'] == '8':
-=======
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':# or meta['phase'] == '7' or meta['phase'] == '8':
->>>>>>> origin/master
+
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
     times = [0, 7.5, 15, 22.5]
     color_bar_length = 7.5
 else:
@@ -184,9 +181,9 @@ w.addItem(path_line)
 
 # Generate Item Lines (ground truth)
 
-<<<<<<< HEAD
+
 items, times, directions = get_items_solutions(meta)
-=======
+
 if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
     times = [2, 12, 18, 25]
     directions = [2, 1, 2, 1]  # Fall = 2, Fly = 1, Stay = 0
@@ -198,7 +195,7 @@ if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
              {'direction': directions[2], 'pos': (-13, 2, times[2]), 'color': (0, 255, 0)},
              {'direction': directions[3], 'pos': (-12, -17, times[3]), 'color': (0, 0, 255)},
              {'direction': 0, 'pos': (13, 5, 0), 'color': (128, 0, 128)}]
-#elif meta['phase'] == '7' or meta['phase'] == '8':
+# elif meta['phase'] == '7' or meta['phase'] == '8':
 #    times = [2, 8, 17, 23]
 #    directions = [2, 1, 1, 2]  # Fall = 2, Fly = 1, Stay = 0
 #    if meta['inverse'] == '1':
@@ -225,14 +222,14 @@ else:
              {'direction': directions[7], 'pos': (6, 18, times[7]), 'color': (0, 0, 255)},
              {'direction': 0, 'pos': (14, 6, 0), 'color': (128, 0, 128)},
              {'direction': 0, 'pos': (-2, 10, 0), 'color': (128, 0, 128)}]
->>>>>>> origin/master
+
 
 item_lines = []
 pos = np.empty((len(items), 3))
 size = np.empty((len(items)))
 color = np.empty((len(items), 4))
 end_time = 60
-if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':  # or meta['phase'] == '7' or meta['phase'] == '8':
+if meta['phase'] == '0' or meta['phase'] == '3' or meta['phase'] == '6':
     end_time = 30
 for idx, i in enumerate(items):
     pos[idx] = i['pos']
@@ -300,11 +297,8 @@ cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
         (pastel_factor, pastel_factor, 255),
         (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
 
-<<<<<<< HEAD
+
 # if meta['phase'] == '7' or meta['phase'] == '8':
-=======
-#if meta['phase'] == '7' or meta['phase'] == '8':
->>>>>>> origin/master
 #    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
 #    item_label_filename = ['bottle.jpg', 'clover.jpg', 'boot.jpg', 'bandana.jpg', 'guitar.jpg']
 #    cols = [(255, 255, pastel_factor), (255, pastel_factor, pastel_factor), (pastel_factor, 255, pastel_factor),

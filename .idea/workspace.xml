@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="901cc391-ac63-4d40-8d3d-e6984df6d91f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/.idea/Visualizer.iml" afterPath="$PROJECT_DIR$/Visualizer/.idea/Visualizer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/Visualizer/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/.idea/misc.xml" afterPath="$PROJECT_DIR$/Visualizer/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Visualizer/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/Main.py" afterPath="$PROJECT_DIR$/Visualizer/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py" afterPath="$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/TestSummarizer.py" afterPath="$PROJECT_DIR$/Visualizer/TestSummarizer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py" afterPath="$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py" />
     </list>
     <ignored path="Holodeck-Time-Travel-Task-Analytics.iws" />
@@ -31,9 +28,11 @@
       <file leaf-file-name="PathVisualizerAnimated3D.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2975">
-              <caret line="182" column="46" lean-forward="false" selection-start-line="182" selection-start-column="27" selection-end-line="182" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="187">
+              <caret line="350" column="50" lean-forward="false" selection-start-line="350" selection-start-column="50" selection-end-line="350" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,7 +40,7 @@
       <file leaf-file-name="ItemPathVisualizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visualizer/ItemPathVisualizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
+            <state relative-caret-position="17">
               <caret line="148" column="74" lean-forward="false" selection-start-line="148" selection-start-column="74" selection-end-line="148" selection-end-column="74" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -50,11 +49,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestSummarizer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestSummarizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visualizer/TestSummarizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="115" column="85" lean-forward="false" selection-start-line="115" selection-start-column="85" selection-end-line="115" selection-end-column="85" />
+            <state relative-caret-position="161">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavigationSummarizer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Visualizer/NavigationSummarizer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -77,8 +88,8 @@
       <file leaf-file-name="TimeTravelTaskBinaryReader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7973">
-              <caret line="477" column="0" lean-forward="false" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
+            <state relative-caret-position="651">
+              <caret line="521" column="11" lean-forward="false" selection-start-line="521" selection-start-column="11" selection-end-line="521" selection-end-column="76" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -112,12 +123,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py" />
         <option value="$PROJECT_DIR$/RotationProblemExample.py" />
         <option value="$PROJECT_DIR$/Visualizer/ItemPathVisualizer.py" />
         <option value="$PROJECT_DIR$/TestSummarizer.py" />
+        <option value="$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py" />
         <option value="$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py" />
         <option value="$PROJECT_DIR$/Visualizer/TestSummarizer.py" />
+        <option value="$PROJECT_DIR$/Visualizer/NavigationSummarizer.py" />
       </list>
     </option>
   </component>
@@ -142,8 +154,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -199,25 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TestSummarizer (1)">
-    <configuration default="false" name="PathVisualizerAnimated3D" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Visualizer" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Holodeck-Time-Travel-Task-Analytics" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.NavigationSummarizer">
     <configuration default="false" name="RotationProblemExample" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -285,6 +279,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Holodeck-Time-Travel-Task-Analytics" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Visualizer/TestSummarizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="NavigationSummarizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Visualizer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Holodeck-Time-Travel-Task-Analytics" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Visualizer/NavigationSummarizer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -387,19 +399,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.PathVisualizerAnimated3D" />
-      <item index="1" class="java.lang.String" itemvalue="Python.RotationProblemExample" />
-      <item index="2" class="java.lang.String" itemvalue="Python.ItemPathVisualizer" />
-      <item index="3" class="java.lang.String" itemvalue="Python.TestSummarizer" />
-      <item index="4" class="java.lang.String" itemvalue="Python.TestSummarizer (1)" />
+      <item index="0" class="java.lang.String" itemvalue="Python.RotationProblemExample" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ItemPathVisualizer" />
+      <item index="2" class="java.lang.String" itemvalue="Python.TestSummarizer" />
+      <item index="3" class="java.lang.String" itemvalue="Python.TestSummarizer (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.NavigationSummarizer" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.TestSummarizer (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TestSummarizer" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ItemPathVisualizer" />
-        <item index="3" class="java.lang.String" itemvalue="Python.RotationProblemExample" />
-        <item index="4" class="java.lang.String" itemvalue="Python.PathVisualizerAnimated3D" />
+        <item index="0" class="java.lang.String" itemvalue="Python.NavigationSummarizer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.TestSummarizer (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.TestSummarizer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ItemPathVisualizer" />
+        <item index="4" class="java.lang.String" itemvalue="Python.RotationProblemExample" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -438,7 +450,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26865673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27132195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3347779" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -478,9 +490,61 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualizer/ItemPathVisualizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="148" column="74" lean-forward="false" selection-start-line="148" selection-start-column="74" selection-end-line="148" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualizer/TestSummarizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="115" column="85" lean-forward="false" selection-start-line="115" selection-start-column="85" selection-end-line="115" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualizer/RotationProblemExample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="42" column="73" lean-forward="false" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8109">
+          <caret line="477" column="0" lean-forward="false" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2975">
           <caret line="182" column="46" lean-forward="false" selection-start-line="182" selection-start-column="27" selection-end-line="182" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -528,7 +592,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4403">
           <caret line="266" column="25" lean-forward="false" selection-start-line="266" selection-start-column="4" selection-end-line="266" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -576,7 +642,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3094">
           <caret line="182" column="52" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -604,7 +672,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -622,7 +692,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -630,7 +702,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -638,7 +712,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -646,7 +722,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -654,7 +732,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -665,17 +745,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Anaconda/Lib/site-packages/numpy/core/_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Visualizer/PathVisualizerAnimated3D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2975">
-          <caret line="182" column="46" lean-forward="false" selection-start-line="182" selection-start-column="27" selection-end-line="182" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="187">
+          <caret line="350" column="50" lean-forward="false" selection-start-line="350" selection-start-column="50" selection-end-line="350" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Visualizer/ItemPathVisualizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
+        <state relative-caret-position="17">
           <caret line="148" column="74" lean-forward="false" selection-start-line="148" selection-start-column="74" selection-end-line="148" selection-end-column="74" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -695,25 +784,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Visualizer/TimeTravelTaskBinaryReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7973">
-          <caret line="477" column="0" lean-forward="false" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
+        <state relative-caret-position="651">
+          <caret line="521" column="11" lean-forward="false" selection-start-line="521" selection-start-column="11" selection-end-line="521" selection-end-column="76" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Anaconda/Lib/site-packages/numpy/core/_methods.py">
+    <entry file="file://$PROJECT_DIR$/Visualizer/TestSummarizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="67" column="29" lean-forward="true" selection-start-line="67" selection-start-column="29" selection-end-line="67" selection-end-column="29" />
+        <state relative-caret-position="161">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Visualizer/TestSummarizer.py">
+    <entry file="file://$PROJECT_DIR$/Visualizer/NavigationSummarizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="115" column="85" lean-forward="false" selection-start-line="115" selection-start-column="85" selection-end-line="115" selection-end-column="85" />
+        <state relative-caret-position="323">
+          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
