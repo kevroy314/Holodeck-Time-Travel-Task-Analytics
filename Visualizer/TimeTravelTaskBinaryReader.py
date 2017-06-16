@@ -554,6 +554,11 @@ def compute_accuracy(meta, items):
     context_crossing_dist_pairs = []
     context_noncrossing_dist_pairs = []
 
+    space_context_crossing_dist_exclude_wrong_colors_pairs = []
+    space_context_noncrossing_dist_exclude_wrong_colors_pairs = []
+    space_context_crossing_dist_pairs = []
+    space_context_noncrossing_dist_pairs = []
+
     pairs = [(1, 1, 2), (1, 3, 4), (1, 5, 6), (0, 0, 1), (0, 2, 3), (0, 4, 5), (0, 6, 7)]
     for pair in pairs:
         crossing = pair[0] != 0
@@ -566,20 +571,44 @@ def compute_accuracy(meta, items):
         solx1, solz1, solt1, sold1 = (
         xs_solution[idx1], zs_solution[idx1], times_solution[idx1], directions_solution[idx1])
         dist = np.abs(t0 - t1) / np.abs(solt0 - solt1)
+        space_dist = distance.euclidean((x0, z0), (x1, z1)) / distance.euclidean((solx0, solz0), (solx1, solz1))
         if crossing:
             context_crossing_dist_pairs.append(dist)
+            space_context_crossing_dist_pairs.append(space_dist)
         else:
             context_noncrossing_dist_pairs.append(dist)
+            space_context_noncrossing_dist_pairs.append(space_dist)
         if is_correct_color(t0, solt0) and is_correct_color(t1, solt1):
             if crossing:
                 context_crossing_dist_exclude_wrong_colors_pairs.append(dist)
+                space_context_crossing_dist_exclude_wrong_colors_pairs.append(space_dist)
             else:
                 context_noncrossing_dist_exclude_wrong_colors_pairs.append(dist)
+                space_context_noncrossing_dist_exclude_wrong_colors_pairs.append(space_dist)
 
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", category=RuntimeWarning)
         return space_misplacement, time_misplacement, space_time_misplacement, direction_correct_count, \
             np.mean(context_crossing_dist_exclude_wrong_colors_pairs), \
             np.mean(context_noncrossing_dist_exclude_wrong_colors_pairs), \
-            np.mean(context_crossing_dist_pairs), np.mean(context_noncrossing_dist_pairs)
+            np.mean(context_crossing_dist_pairs), np.mean(context_noncrossing_dist_pairs), \
+            np.mean(space_context_crossing_dist_exclude_wrong_colors_pairs), \
+            np.mean(space_context_noncrossing_dist_exclude_wrong_colors_pairs), \
+            np.mean(space_context_crossing_dist_pairs), np.mean(space_context_noncrossing_dist_pairs)
 
+
+def get_item_details(pastel_factor=127):
+    event_state_labels = ['stationary', 'up', 'down']
+    item_number_label = ['bottle', 'icecubetray', 'clover', 'basketball', 'boot', 'crown', 'bandana', 'hammer',
+                         'fireext', 'guitar']
+    item_label_filename = ['bottle.jpg', 'icecubetray.jpg', 'clover.jpg', 'basketball.jpg',
+                           'boot.jpg', 'crown.jpg', 'bandana.jpg', 'hammer.jpg',
+                           'fireextinguisher.jpg', 'guitar.jpg']
+
+    cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
+            (255, pastel_factor, pastel_factor), (255, pastel_factor, pastel_factor),
+            (pastel_factor, 255, pastel_factor), (pastel_factor, 255, pastel_factor),
+            (pastel_factor, pastel_factor, 255),
+            (pastel_factor, pastel_factor, 255),
+            (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
+    return event_state_labels, item_number_label, item_label_filename, cols

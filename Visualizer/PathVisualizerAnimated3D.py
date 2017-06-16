@@ -282,21 +282,7 @@ w.addItem(click_scatter)
 
 # If Test, Generate Reconstruction Items
 
-event_state_labels = ['stationary', 'up', 'down']
-item_number_label = ['bottle', 'icecubetray', 'clover', 'basketball', 'boot', 'crown', 'bandana', 'hammer',
-                     'fireext', 'guitar']
-item_label_filename = ['bottle.jpg', 'icecubetray.jpg', 'clover.jpg', 'basketball.jpg',
-                       'boot.jpg', 'crown.jpg', 'bandana.jpg', 'hammer.jpg',
-                       'fireextinguisher.jpg', 'guitar.jpg']
-
-pastel_factor = 127
-cols = [(255, 255, pastel_factor), (255, 255, pastel_factor),
-        (255, pastel_factor, pastel_factor), (255, pastel_factor, pastel_factor),
-        (pastel_factor, 255, pastel_factor), (pastel_factor, 255, pastel_factor),
-        (pastel_factor, pastel_factor, 255),
-        (pastel_factor, pastel_factor, 255),
-        (128, pastel_factor / 2, 128), (128, pastel_factor / 2, 128)]
-
+event_state_labels, item_number_label, item_label_filename, cols = get_item_details()
 
 # if meta['phase'] == '7' or meta['phase'] == '8':
 #    item_number_label = ['bottle', 'clover', 'boot', 'bandana', 'guitar']
@@ -550,9 +536,12 @@ sh.setContext(QtCore.Qt.ApplicationShortcut)
 # Animation Loop
 ########################################################################################################################
 
+import math
 
 def update():
-    global path_line, idx, timer, iterations, click_scatter, click_pos, click_color, click_size
+    global path_line, idx, timer, iterations, click_scatter, click_pos, click_color, click_size, w
+    w.opts['elevation'] = math.fabs(math.cos(float(idx)/800.)*20.) + 10.
+    w.opts['azimuth'] = math.sin(float(idx)/800.)*45 + 45
     for _ in range(0, abs(num_points_to_update)):
         if num_points_to_update > 0:
             line_color_state[idx] = line_color[idx]

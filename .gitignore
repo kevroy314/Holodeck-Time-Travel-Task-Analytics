@@ -48,3 +48,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+\saved_data
+*.csv
+*.xlsx
